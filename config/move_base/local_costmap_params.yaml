@@ -1,0 +1,17 @@
+local_costmap:
+  plugins:
+    - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
+    # - {name: inflation_layer, type: "costmap_2d::InflationLayer"} # uncomment when using TrajectoryPlannerROS
+
+  global_frame     : odom
+
+  update_frequency : 5.0
+  publish_frequency: 2.0
+
+  rolling_window: true
+  width         : 5
+  height        : 5
+  resolution    : 0.1
+
+  # inflation_layer: # uncomment when using TrajectoryPlannerROS
+  #   inflation_radius: 0.2 # uncomment when using TrajectoryPlannerROS
