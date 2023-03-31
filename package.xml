@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package format="2">
+  <name>tsuten_real_robot</name>
+  <version>1.0.0</version>
+  <description>Package for interfacing real Tsuten robot.</description>
+  <maintainer email="mitukou1109@gmail.com">Mitsuhiro
+    Sakamoto</maintainer>
+
+  <license>
+    MIT</license>
+
+  <depend>nav_msgs</depend>
+  <depend>roscpp</depend>
+  <depend>tf2</depend>
+  <depend>tf2_ros</depend>
+  <depend>tsuten_msgs</depend>
+
+  <exec_depend>tsuten</exec_depend>
+
+  <buildtool_depend>catkin</buildtool_depend>
+</package>
