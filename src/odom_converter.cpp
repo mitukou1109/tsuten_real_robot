@@ -24,6 +24,8 @@ namespace tsuten_real_robot
   private:
     void odomRawCallback(const tsuten_msgs::Odometry &odom_raw)
     {
+      odom_.header.stamp = ros::Time::now();
+
       odom_.pose.pose.position.x = odom_raw.x;
       odom_.pose.pose.position.y = odom_raw.y;
 
