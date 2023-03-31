@@ -4,11 +4,4 @@
   <arg name="robot_type" value="tsuten" />
 
   <include file="$(find tsuten_behavior)/launch/main.launch" pass_all_args="true" />
-
-  <node name="serial_node" pkg="rosserial_python" type="serial_node.py">
-    <param name="port" value="/dev/ttyUSB0" />
-    <param name="baud" value="460800" />
-  </node>
-
-  <node name="odom_converter" pkg="tsuten_real_robot" type="odom_converter" />
 </launch>
