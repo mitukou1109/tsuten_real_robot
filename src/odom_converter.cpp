@@ -11,14 +11,13 @@ namespace tsuten_real_robot
   public:
     OdomConverter()
     {
+      ros::NodeHandle pnh("~");
+      pnh.param("odom_frame", odom_.header.frame_id, std::string("odom"));
+      pnh.param("robot_base_frame", odom_.child_frame_id, std::string("base_link"));
+
       ros::NodeHandle nh;
-
       odom_pub_ = nh.advertise<nav_msgs::Odometry>("odom", 10);
-
       odom_raw_sub_ = nh.subscribe("odom_raw", 10, &OdomConverter::odomRawCallback, this);
-
-      odom_.header.frame_id = "odom";
-      odom_.child_frame_id = "base_link";
     }
 
   private:
@@ -28,10 +27,7 @@ namespace tsuten_real_robot
 
       odom_.pose.pose.position.x = odom_raw.x;
       odom_.pose.pose.position.y = odom_raw.y;
-
-      tf2::Quaternion quat;
-      quat.setRPY(0, 0, odom_raw.theta);
-      odom_.pose.pose.orientation = tf2::toMsg(quat);
+      odom_.pose.pose.orientation = tf2::toMsg(tf2::Quaternion({0, 0, 1}, odom_raw.theta));
 
       odom_.twist.twist.linear.x = odom_raw.v_x;
       odom_.twist.twist.linear.y = odom_raw.v_y;
