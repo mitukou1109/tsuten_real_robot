@@ -1,0 +1,58 @@
+TebLocalPlannerROS:
+  xy_goal_tolerance: 0.2
+  yaw_goal_tolerance: 0.1
+
+  roadmap_graph_no_samples: 15
+  roadmap_graph_area_width: 5
+  roadmap_graph_area_length_scale: 1.0
+  h_signature_prescaler: 0.5
+  h_signature_threshold: 0.1
+  obstacle_heading_threshold: 0.45
+  visualize_with_time_as_z_axis_scale: false
+  delete_detours_backwards: true
+  max_ratio_detours_duration_best_duration: 3.0
+
+  min_obstacle_dist: 0.1
+  inflation_dist: 0.3
+  include_costmap_obstacles: true
+
+  optimization_activate: true
+  optimization_verbose: false
+  weight_max_vel_x: 2
+  weight_max_vel_y: 2
+  weight_max_vel_theta: 1
+  weight_acc_lim_x: 1
+  weight_acc_lim_y: 1
+  weight_acc_lim_theta: 1
+  weight_kinematics_nh: 0
+  weight_kinematics_forward_drive: 0
+  weight_kinematics_turning_radius: 0
+  weight_optimaltime: 1
+  weight_shortest_path: 0
+  weight_obstacle: 50
+  weight_viapoint: 30 # important
+
+  oscillation_recovery: false
+
+  max_vel_x: 1.0
+  max_vel_x_backwards: 1.0
+  max_vel_theta: 2.0
+  acc_lim_x: 1.0
+  acc_lim_theta: 2.0
+  min_turning_radius: 0.0
+  max_vel_y: 1.0
+  acc_lim_y: 1.0
+  complete_global_plan: true
+      
+  teb_autosize: true
+  global_plan_overwrite_orientation: false # important
+  allow_init_with_backwards_motion: false
+  feasibility_check_no_poses: 5
+
+  global_plan_viapoint_sep: 0.2 # important
+
+  footprint_model:
+    type: "polygon"
+    vertices: [[425.0e-3, 425.0e-3], [-425.0e-3, 425.0e-3], [-425.0e-3, -425.0e-3], [425.0e-3, -425.0e-3]]
+
+  costmap_converter_plugin: "costmap_converter::CostmapToLinesDBSRANSAC"

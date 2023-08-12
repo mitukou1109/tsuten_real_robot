@@ -1,7 +1,8 @@
 local_costmap:
   plugins:
+    - {name: static_layer, type: "costmap_2d::StaticLayer"}
     - {name: obstacle_layer, type: "costmap_2d::ObstacleLayer"}
-    # - {name: inflation_layer, type: "costmap_2d::InflationLayer"} # uncomment when using TrajectoryPlannerROS
+    - {name: inflation_layer, type: "costmap_2d::InflationLayer"}
 
   global_frame     : odom
 
@@ -13,5 +14,9 @@ local_costmap:
   height        : 5
   resolution    : 0.1
 
-  # inflation_layer: # uncomment when using TrajectoryPlannerROS
-  #   inflation_radius: 0.2 # uncomment when using TrajectoryPlannerROS
+  static_layer:
+    map_topic: map
+    track_unknown_space: true
+
+  inflation_layer:
+    inflation_radius: 0.6

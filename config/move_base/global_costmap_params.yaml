@@ -14,4 +14,4 @@ global_costmap:
     track_unknown_space: true
 
   inflation_layer:
-    inflation_radius: 0.5
+    inflation_radius: 0.8
