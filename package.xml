@@ -15,7 +15,9 @@
   <depend>tf2_ros</depend>
   <depend>tsuten_msgs</depend>
 
+  <exec_depend>rosserial</exec_depend>
   <exec_depend>tsuten</exec_depend>
+  <exec_depend>ydlidar_ros_driver</exec_depend>
 
   <buildtool_depend>catkin</buildtool_depend>
 </package>
