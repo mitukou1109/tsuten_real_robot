@@ -25,13 +25,13 @@ namespace tsuten_real_robot
     {
       odom_.header.stamp = ros::Time::now();
 
-      odom_.pose.pose.position.x = odom_raw.x;
-      odom_.pose.pose.position.y = odom_raw.y;
-      odom_.pose.pose.orientation = tf2::toMsg(tf2::Quaternion({0, 0, 1}, odom_raw.theta));
+      odom_.pose.pose.position.x = odom_raw.x / 1000.;
+      odom_.pose.pose.position.y = odom_raw.y / 1000.;
+      odom_.pose.pose.orientation = tf2::toMsg(tf2::Quaternion({0, 0, 1}, odom_raw.theta / 1000.));
 
-      odom_.twist.twist.linear.x = odom_raw.v_x;
-      odom_.twist.twist.linear.y = odom_raw.v_y;
-      odom_.twist.twist.angular.z = odom_raw.v_theta;
+      odom_.twist.twist.linear.x = odom_raw.v_x / 1000.;
+      odom_.twist.twist.linear.y = odom_raw.v_y / 1000.;
+      odom_.twist.twist.angular.z = odom_raw.v_theta / 1000.;
 
       odom_pub_.publish(odom_);
     }
